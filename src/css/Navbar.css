@@ -1,0 +1,145 @@
+/* Navbar container */
+.navbar {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2c2c2c 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar-brand a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand a:hover {
+  color: #e50914;
+}
+
+/* Links container */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(229, 9, 20, 0.2);
+  color: #e50914;
+  transform: translateY(-2px);
+}
+
+.nav-link:active {
+  transform: translateY(0);
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: #e50914;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background: #2c2c2c;
+    border-radius: 8px;
+    margin-top: 1rem;
+    animation: slideIn 0.3s ease-in-out;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .mobile-menu-toggle {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+/* Animation for mobile menu */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
