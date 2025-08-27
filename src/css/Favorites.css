@@ -1,88 +1,149 @@
-/* General setup */
+/*
+ * General setup
+ */
 .favorites {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  background: radial-gradient(circle at top left, #1f1f1f 0%, #0a0a0a 100%);
   padding: 3rem 1rem;
   color: #fff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   box-sizing: border-box;
 }
 
-/* Header styling */
+/*
+ * Main Content Container
+ */
+.favorites-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05); /* Lighter, subtle background */
+  border-radius: 20px;
+  backdrop-filter: blur(15px); /* Stronger blur for frosted-glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  animation: slideInUp 1s ease-out;
+}
+
+/*
+ * Header styling
+ */
 .favorites h2 {
   margin-bottom: 2.5rem;
   text-align: center;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 1s ease-in-out;
+  font-size: 3.2rem; /* Make it slightly larger */
+  font-weight: 800; /* Bolder font weight */
+  background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Vibrant gradient */
+  -webkit-background-clip: text;
+  background-clip: text; /* Added for cross-browser compatibility */
+  -webkit-text-fill-color: transparent;
+  text-shadow: none; /* Remove previous shadow for cleaner look */
+  animation: slideInDown 1s ease-in-out;
 }
 
-/* Movies grid */
+/*
+ * Movies grid
+ */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 .movies-grid > * {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Empty state */
+/*
+ * Empty state
+ */
 .favorites-empty {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   margin: 2rem auto;
   max-width: 700px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.7s ease-in-out;
 }
 
 .favorites-empty .empty-icon {
-  font-size: 3rem;
-  color: #e50914;
-  margin-bottom: 1rem;
-  animation: pulse 2s infinite ease-in-out;
+  font-size: 4rem;
+  color: #ff7e5f;
+  margin-bottom: 1.5rem;
+  animation: pulse 2.5s infinite ease-in-out;
 }
 
 .favorites-empty h2 {
   margin-bottom: 1rem;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #e50914;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text; /* Added for cross-browser compatibility */
+  -webkit-text-fill-color: transparent;
 }
 
 .favorites-empty p {
-  color: #aaa;
+  color: #c4c4c4;
   font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .explore-link {
-  color: #e50914;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #e50914, #f40612);
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
   transition: all 0.3s ease;
 }
 
 .explore-link:hover {
-  color: #f40612;
-  text-decoration: underline;
+  transform: translateY(-3px);
+  box-shadow: 6px 20px rgba(229, 9, 20, 0.6);
 }
 
-/* Animations */
+/*
+ * Animations
+ */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -105,7 +166,9 @@
   }
 }
 
-/* Responsive design */
+/*
+ * Responsive design
+ */
 @media (max-width: 768px) {
   .favorites {
     padding: 2rem 1rem;
@@ -113,6 +176,10 @@
 
   .favorites h2 {
     font-size: 2.2rem;
+  }
+
+  .favorites-container {
+    padding: 1.5rem;
   }
 
   .movies-grid {
@@ -143,8 +210,8 @@
     font-size: 1.8rem;
   }
 
-  .favorites-empty {
-    padding: 2rem 0.5rem;
+  .favorites-container {
+    padding: 1rem;
   }
 
   .favorites-empty .empty-icon {
