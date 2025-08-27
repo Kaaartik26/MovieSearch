@@ -1,2 +1,4 @@
-Hi there, MovieSearch is a mini project to understand the basics and some advanced topic of React.js.
-Do consider giving it a star if you liked it
+# 🎬 MovieSearch App
+A React-based web app to search and explore movies instantly using an external API.
+
+![React](https://img.shields.io/badge/react-18-blue)
